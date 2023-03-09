@@ -24,7 +24,7 @@ function RecipeForm() {
           name='firstName'
           control={control}
           render={({ field }) => (
-            <Form.Control {...field} required type='text' placeholder='Enter email' />
+            <Form.Control {...field} required type='text' placeholder='Enter recipe name' />
           )}
         />
       </Form.Group>

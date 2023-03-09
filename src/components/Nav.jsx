@@ -1,3 +1,6 @@
+import { NavLink } from "react-router-dom";
+
+
 function Nav() {
     return (
       <header>
@@ -5,20 +8,13 @@ function Nav() {
           <nav className='navigation'>
             <ul>
               <li>
-                <a href='#'>RECIPES</a>
+              <NavLink className={({ isActive }) => (isActive ? 'activelink' : '')} to="/">Recipes</NavLink>
               </li>
               <li>
-                <a href='#'>CATEGORIES</a>
+              <NavLink className={({ isActive }) => (isActive ? 'activelink' : '')} to="/new-recipe">Create a recipe</NavLink>
+
               </li>
             </ul>
-          </nav>
-          <nav className='login-area'>
-            <button className='login'>
-              <a href='#'>LOGIN</a>
-            </button>
-            <button className='register'>
-              <a href='#'>REGISTER</a>
-            </button>
           </nav>
         </section>
       </header>

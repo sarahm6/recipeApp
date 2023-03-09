@@ -1,10 +1,10 @@
-import Header from './/Header';
 import Nav from './/Nav';
+import { Outlet } from "react-router-dom";
 
-function MainLayout({children}) {
+
+function MainLayout() {
   return (
     <div className='container-xxl'>
-      <Header />
       <Nav />
       <main>
         <section className='jumbo'>
@@ -14,7 +14,7 @@ function MainLayout({children}) {
             <button label='FIND'>FIND</button>
           </div>
         </section>
-        {children}
+        <Outlet />
       </main>
     </div>
   );

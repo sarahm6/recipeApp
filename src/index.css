@@ -77,6 +77,7 @@ nav {
   transition: all 0.1s ease-in;
   border-radius: 5px;
 }
+.activelink, 
 .navigation li a:hover {
   background-color: darksalmon;
   color: #ffffff;
