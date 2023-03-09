@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const Recipe = require('./models');
 
 const app = express();
-
 // parse req.body for use
 app.use(express.json());
 
@@ -15,6 +14,9 @@ app.use(express.urlencoded({extended: true}))
 
 // console.log(process.env.API_KEY);
 app.use(cors('*/*'))
+
+// SERVE THE REACT APP FROM SERVER
+app.use(express.static(path.join(__dirname, 'build')));
 
 // app.use(logger('dev'))
 
