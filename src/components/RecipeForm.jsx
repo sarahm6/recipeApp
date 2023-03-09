@@ -1,10 +1,11 @@
-import React, { useReducer, useState } from 'react';
-
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm, Controller } from 'react-hook-form';
+import axios from 'axios';
 
 function RecipeForm() {
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
@@ -13,15 +14,25 @@ function RecipeForm() {
   } = useForm();
 
   const onSubmit = (data) => {
+    async function createRecipe () {
+      const endPoint = process.env.REACT_APP_BASE_URL+"/recipes"
+      try {
+      await axios.post(endPoint, {...data})
+      navigate("/"); 
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    createRecipe();
     console.log(data);
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group className='mb-3' controlId='formName'>
+      <Form.Group className='mb-3' controlId='name'>
         <Form.Label>Name</Form.Label>
         <Controller
-          name='firstName'
+          name='name'
           control={control}
           render={({ field }) => (
             <Form.Control {...field} required type='text' placeholder='Enter recipe name' />
@@ -29,7 +40,7 @@ function RecipeForm() {
         />
       </Form.Group>
 
-      <Form.Group className='mb-3' controlId='formCategory'>
+      {/* <Form.Group className='mb-3' controlId='formCategory'>
         <Form.Label>Category</Form.Label>
         <Controller
           name='category'
@@ -38,15 +49,15 @@ function RecipeForm() {
             <Form.Control {...field} required type='text' placeholder='Category' />
           )}
         />
-      </Form.Group>
+      </Form.Group> */}
 
-      <Form.Group className='mb-3' controlId='formDescription'>
+      <Form.Group className='mb-3' controlId='formContent'>
         <Form.Label>Description</Form.Label>
         <Controller
-          name='description'
+          name='content'
           control={control}
           render={({ field }) => (
-            <Form.Control {...field} required type='text' placeholder='Description' />
+            <Form.Control {...field} required type='text' placeholder='Content' />
           )}
         />
       </Form.Group>
