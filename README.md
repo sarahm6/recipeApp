@@ -23,10 +23,6 @@ For this project, you will be making another full CRUD app using the technologie
 - Use react-router-dom
 - The project must include a README.md file 
 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 ## Render Website
 
 https://yasmeenskitchen.onrender.com
